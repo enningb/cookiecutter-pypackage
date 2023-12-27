@@ -26,16 +26,13 @@ app = typer.Typer(
 
 @app.callback()
 def callback():
-    """
-    {{ cookiecutter.project_short_description }}
-    """
+    """{{ cookiecutter.project_short_description }}."""
 
 # create commandline tool with code like below:
 @app.command()
 def example_command():
+    """This will print the config file path."""
     typer.echo(
-        f"This will print the config file path: {CONFIG_FILE} "
+        f"Configfile is at: {CONFIG_FILE} "
     )
-
-
 {%- endif %}
