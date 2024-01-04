@@ -1,6 +1,6 @@
 # Tutorial
 
-??? Note
+!!! note
     Did you find this article confusing? [Edit this file] and pull a request!
 
 To start with, you will need [GitHub], [PyPI], [TestPyPI] and [Codecov] account. If
@@ -25,7 +25,7 @@ Now it's time to generate your Python package.
 Run the following command and feed with answers, If you don’t know what to enter, stick with the defaults:
 
 ```bash
-cookiecutter https://github.com/waynerv/cookiecutter-pypackage.git
+cookiecutter https://github.com/enningb/cookiecutter-pypackage.git
 ```
 
 Finally, a new folder will be created under current folder, the name is the answer you
@@ -82,11 +82,10 @@ In this step we will install Poetry if you are not using it, since the whole pro
 pip install poetry
 ```
 
-In addition, Poetry provides a [custom installer](https://python-poetry.org/docs/#installation) that will install
-poetry isolated from the rest of your system by vendorizing its dependencies.
+In addition, Poetry provides a [custom installer](https://python-poetry.org/docs/#installation) that will install poetry isolated from the rest of your system by vendorizing its dependencies.
 This is the recommended way of installing poetry.
 
-## Step 4: Install Dev Requirements
+## Step 4: Install requirements
 
 You should still be in the folder named as `project_slug`, which containing the
  `pyproject.toml` file.
@@ -94,28 +93,19 @@ You should still be in the folder named as `project_slug`, which containing the
 Install the new project's local development requirements with `poetry install`:
 
 ``` bash
-poetry install -E doc -E dev -E test
+poetry install
 poetry run tox
 ```
 
 Poetry will create its own virtualenv isolated from your system and install the dependencies in it.
-We installed extra dependency need by developer with `-E {group}` options, such as documentation build tools, lint,
+We installed extra dependency need by developer options, such as documentation build tools, lint,
 formatting and test tools etc.
 
-We also launch a smoke test here by running `poetry run tox`. This will run `tox` within created virtual environment,
-give you a test report and lint report. You should see no errors except some lint warnings.
+We also launch a smoke test here by running `poetry run tox`. This will run `tox` within created virtual environment, give you a test report and lint report. You should see no errors except some lint warnings.
 
 You can also activate the virtual environment manually with `poetry shell`, this will create a new shell.
 
-??? Tips
-
-    Extra dependencies are grouped into three groups, doc, dev and test for better
-    granularity. When you ship the package, dependencies in group doc, dev and test
-    might not be shipped.
-
-    As the developer, you will need install all the dependencies.
-
-??? Tips
+!!! Tips
 
     if you found erros like the following during tox run:
     ```
@@ -135,9 +125,16 @@ cookiecutter.
 Then go to repo > settings > secrets, click on 'New repository secret', add the following
  secrets:
 
-- TEST_PYPI_API_TOKEN, see [How to apply TestPyPI token]
-- PYPI_API_TOKEN, see [How to apply pypi token]
 - PERSONAL_TOKEN, see [How to apply personal token]
+
+Enable Github Pages by going to Settings > Pages and choose:
+
+ - Source: Deploy from a branch
+ - Branch: choose `gh-pages` and `root` 
+
+ !!! tip
+    If `gh-pages` does not show, you may have to first run release-workflow on Github.
+
 
 ## Step 6: Set Up codecov integration
 
@@ -186,6 +183,7 @@ You'll need a ssh key to push the repo. You can [Generate] a key or
     then you should find pre-commit be invoked when you run `git commit`, and some files
      may be modified by hooks. If so, please add these files and **commit again**.
 
+
 ### Check result
 
 After pushing your code to GitHub, goto GitHub web page, navigate to your repo, then
@@ -226,7 +224,5 @@ This will run the builtin development server for you to preview.
 [GitHub Help]: https://help.github.com/
 [Generate]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 [Add]: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
-[How to apply testpypi token]: https://test.pypi.org/manage/account/
-[How to apply pypi token]: https://pypi.org/manage/account/
-[How to apply personal token]: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+[Setup (test)pypi publishing from Github Actions]: https://github.com/marketplace/actions/pypi-publish
 [install codecov app]: https://github.com/apps/codecov

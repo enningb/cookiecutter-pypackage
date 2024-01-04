@@ -8,13 +8,8 @@
 
 
 ???+ Question
-    # Why not travis CI?
-    Travis CI is a great service, however, github actions is super convenient, less configuration
-    , better integration. Less configuration, less error prone.
-
-???+ Question
     # Why not read the docs?
-    Same reason as above. GitHub Pages is convenient than read the docs, it requires no
+    GitHub Pages is convenient than read the docs, it requires no
     further configuration, except access token. As to read the docs, you need to
     write v2 config file, plus several settings on web pages.
 
@@ -75,7 +70,7 @@
     for your project.
 
     command_line_interface
-    Whether to create a console script using Python Click. Console script
+    Whether to create a console script using Python Click or Typer. Console script
     entry point will match the project_slug. Options: \['click', "No
     command-line interface"\]
     ```

@@ -23,11 +23,10 @@ This tool will create Python project with the following features:
 * [Pre-commit hooks](https://pre-commit.com/): Formatting/linting anytime when commit your code
 * [Mkdocstrings](https://mkdocstrings.github.io/): Auto API doc generation
 * Command line interface using [Click](https://click.palletsprojects.com/en/8.0.x/) (optional)
-* [bump2version](https://github.com/c4urself/bump2version): Pre-configured version bumping with a single command
+* [bump-my-version](https://github.com/callowayproject/bump-my-version): Pre-configured version bumping with a single command
 * Continuous Integration/Deployment by [GitHub actions](https://github.com/features/actions), includes:
     - publish dev build/official release to TestPyPI/PyPI automatically when CI success
     - publish documents automatically when CI success
-    - extract changelog from CHANGELOG and integrate with release notes automatically
 * Host your documentation from [GitHub Pages](https://pages.github.com) with zero-config
 
 ## Quickstart
@@ -41,11 +40,11 @@ pip install -U cookiecutter
 Generate a Python package project:
 
 ```
-cookiecutter https://github.com/waynerv/cookiecutter-pypackage.git
+cookiecutter https://github.com/enningb/cookiecutter-pypackage.git
 ```
 
 Then follow **[Tutorial](docs/tutorial.md)** to finish other configurations.
 
 # Credits
 
-This repo is forked from [zillionare/python-project-wizard](https://github.com/zillionare/python-project-wizard), which originally forked from [audreyfeldroy/cookiecutter-pypackage](https://github.com/audreyfeldroy/cookiecutter-pypackage)
+This repo is forked from [waynerv](https://github.com/waynerv/cookiecutter-pypackage.git) who forked from[zillionare/python-project-wizard](https://github.com/zillionare/python-project-wizard), which originally forked from [audreyfeldroy/cookiecutter-pypackage](https://github.com/audreyfeldroy/cookiecutter-pypackage)

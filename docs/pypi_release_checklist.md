@@ -21,7 +21,7 @@ You better visit PyPI to make sure your package name is unused.
 3.  Update version number and automatically create a commit, tag(can also be patch or major).
 
     > ``` bash
-    > poetry run bump2version minor
+    > poetry run bump-my-version bump --current-version 0.x.yy patch/minor
     > ```
 
 4.  Run the tests locally for insurance:

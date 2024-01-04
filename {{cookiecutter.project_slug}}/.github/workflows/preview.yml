@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: stage & preview workflow
+name: Stage & preview workflow
 
 # Controls when the action will run.
 on:
@@ -14,15 +14,20 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   publish_dev_build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    environment:
+      name: test-pypi
+      url: https://test.pypi.org/p/{{ cookiecutter.pkg_name}}
 
     strategy:
       matrix:
-        python-versions: [3.10]
+        python-versions: ["3.10"]
+    permissions:
+      id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-versions }}
 
@@ -32,7 +37,9 @@ jobs:
           pip install poetry tox tox-gh-actions
 
       - name: test with tox
-        run: tox
+        run: |
+          poetry install
+          poetry run tox
 
       - name: Build wheels and source tarball
         run: |
@@ -40,10 +47,7 @@ jobs:
           poetry version --short
           poetry build
 
-      - name: publish to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
+      - name: Publish distribution to Test PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN}}
-          repository_url: https://test.pypi.org/legacy/
-          skip_existing: true
+          repository-url: https://test.pypi.org/legacy/
