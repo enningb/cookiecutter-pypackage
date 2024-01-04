@@ -5,7 +5,7 @@
   "project_short_description": "Skeleton project created by Cookiecutter PyPackage",
   "full_name": "Xie Wei",
   "email": "ampedee@gmail.com",
-  "github_username": "waynerv",
+  "github_username": "enningb",
   "version": "0.1.0",
   "command_line_interface": [
     "Click",

@@ -216,7 +216,7 @@ This will run the builtin development server for you to preview.
   result at [PyPI].
 
 
-[Edit this file]: https://github.com/waynerv/cookiecutter-pypackage/blob/master/docs/tutorial.md
+[Edit this file]: https://github.com/enningb/cookiecutter-pypackage/blob/master/docs/tutorial.md
 [Codecov]: https://codecov.io/
 [PYPI]: https://pypi.org
 [GitHub]: https://github.com/

@@ -3,10 +3,10 @@
 Cookiecutter template for a Python package, built with popular develop tools and
 conform to best practice.
 
-[![CI Status](https://github.com/waynerv/cookiecutter-pypackage/actions/workflows/dev.yml/badge.svg)](https://github.com/waynerv/cookiecutter-pypackage/actions/workflows/dev.yml)
+[![CI Status](https://github.com/enningb/cookiecutter-pypackage/actions/workflows/dev.yml/badge.svg)](https://github.com/enningb/cookiecutter-pypackage/actions/workflows/dev.yml)
 [![License](https://img.shields.io/pypi/l/ppw)](https://opensource.org/licenses/BSD-2-Clause)
 
-* Documentation: <https://waynerv.github.io/cookiecutter-pypackage>
+* Documentation: <https://enningb.github.io/cookiecutter-pypackage>
 
 ## Features
 
